@@ -1,0 +1,79 @@
+<html lang="en">
+<head>
+ <title>fufu clinics</title>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="/static/css/main.css"/>
+<link rel="stylesheet" href="/static/css/windw.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+{% macro grid_list(name, spec_name, relation, randchar) %}
+<h3>Запись к доктору: <b>{{name}}</b> ({{spec_name}})</h3>
+
+<div class="master_windows" >
+    {%  for date in randchar %}
+        <h4 style="text-align: center; font-size: 15px">{{ date }}</h4>
+        <div class="grid">
+        {% set n = len(relation) %}
+        {% for i in range(n) %}
+            {% if relation.loc[i][1] == date  %}
+                <div class="{{ i }}">
+                {% for name in relation.dtypes.index %}
+                {% if name=='Запись' %}
+                    {% if relation.loc[i][3] == 0 %}
+                        <input name ='record_button' value={{relation.loc[i][0]}} type="radio" id={{relation.loc[i][0]}}>
+                        <label class="button_1" for={{relation.loc[i][0]}}>{{relation.loc[i][2]}}:00</label>
+
+                    {% else %}
+                        <input  disabled name ='record_button' value={{relation.loc[i][0]}} type="radio" id={{relation.loc[i][0]}}>
+                        <label class="button_1" for={{relation.loc[i][0]}}>{{relation.loc[i][2]}}:00</label>
+                    {% endif %}
+                {% endif %}
+                {% endfor %}
+                </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+        <br>
+    {% endfor %}
+</div>
+{% endmacro %}
+
+</head>
+<body>
+  <div id="pagewrap">
+    <nav>
+      <ul>
+        <li><a href={{ url_for("index") }}>Выбрать специалиста</a></li>
+        <li><a href="#">Выбор даты</a></li>
+{#        <li><a href="#">Gallery</a></li>#}
+{#        <li><a href="#">Contacts</a></li>#}
+      </ul>
+    </nav>
+  </div>
+
+ <div class="container" >
+  <form class="form" action="{{ url_for('date') }}" method="get">
+            <input type="date"  required="required" placeholder="С какого" name="dateStart">
+            <input type="date" required="required" placeholder="По какое" name="dateEnd">
+            <button type ="submit" name="submitGetDate" value="on" class="button_1">Найти подходящее время</button>
+  </form>
+
+<form id="dateform" action="{{ url_for('confirm') }}" >
+    {% if  relation is not none%}
+    {% for i in range(0,len(relation)) %}
+    {{ grid_list(relation[i].loc[i][4], relation[i].loc[i][5], relation[i], randchar[i])}}
+    {% endfor %}
+{% endif %}
+    <input type="submit" class="button_1" value="Подтвердить запись" >
+</form>
+
+ <form action="{{ url_for('date') }}">
+     <input type="text" name="docname">
+     <input type="date" required="required" placeholder="dat" name="datedoc" >
+     <input type="submit" name="subdocname">
+ </form>
+
+ </div>
+
+</body>
+</html>

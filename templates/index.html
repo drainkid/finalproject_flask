@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+  <title>fufu clinics</title>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="/static/css/main.css"/>
+    <link rel="stylesheet" href="/static/css/windw.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+
+</head>
+<body>
+  <div id="pagewrap">
+    <nav>
+      <ul>
+        <li><a href={{ url_for("index") }}>Выбрать специалиста</a></li>
+{#        <li><a href="#">About</a></li>#}
+{#        <li><a href="#">Gallery</a></li>#}
+{#        <li><a href="#">Contacts</a></li>#}
+      </ul>
+    </nav>
+  </div>
+
+  <div class="container" >
+
+    <form >
+        <p>
+            Выберите к кому хотите записаться:<br>
+            {% set n = len(relation) %}
+    {% for i in range(0, n) %}
+        <input type="radio" name="speciality" value="{{ i + 1}}"  >
+        <label for= "speciality"> {{ relation.iloc[i][0]}} </label>
+        </p>
+        {% endfor %}
+  <input type="submit" name="docbutton" value="Выбрать врача" class="button_1" >
+        <input type="submit" name="datebutton" value="Выбрать дату" class="button_1">
+    </form>
+  </div>
+
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+/**{*/
+/*  -webkit-box-sizing: border-box;*/
+/*  padding: 0;*/
+/*  margin: 0;*/
+/*}*/
+
+body{
+
+  font-family: monospace, Helvetica, Verdana, Geneva, sans-serif;
+  font-size: 16px;
+}
+
+/* main header */
+
+#main, nav, section, footer{
+  margin: 1%;
+}
+
+#main{
+  width: 100%;
+  height: auto;
+  margin: 0 auto 2% auto;
+  background-size: cover;
+  background-position: 50% 20%;
+  padding-top: 50vh;
+  padding-bottom: 50vh;
+}
+
+#main h1{
+  text-align: center;
+  font-size: 3em;
+}
+/* end of main header */
+
+/* navigation section */
+
+nav {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  margin: 0 auto;
+  width: 100%;
+  background-color: #222;
+}
+
+nav ul{
+  list-style-type: none;
+  text-align: center;
+}
+
+nav ul li{
+  display: inline-block;
+  text-align: center;
+  padding: 20px;
+  height: 2%;
+}
+
+nav ul li a{
+  text-decoration: none;
+  color: white;
+  padding: 20px;
+}
+
+/* an underline appears at the bottom on hover of each link */
+nav ul li a:hover, nav ul li a:active{
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 8px;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    position: relative;
+    margin-top: 100px ;
+}
