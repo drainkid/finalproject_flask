@@ -8,6 +8,7 @@ import conrollers.date
 import conrollers.docdate
 import conrollers.confirm
 import conrollers.hh
+import conrollers.registration
 
 
 

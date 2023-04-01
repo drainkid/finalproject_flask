@@ -15,9 +15,8 @@
     <nav>
       <ul>
         <li><a href={{ url_for("index") }}>Выбрать специалиста</a></li>
-{#        <li><a href="#">About</a></li>#}
-{#        <li><a href="#">Gallery</a></li>#}
-{#        <li><a href="#">Contacts</a></li>#}
+          <li><a href={{ url_for("registration") }}>Регистрация</a></li>
+
       </ul>
     </nav>
   </div>
@@ -30,7 +29,7 @@
             {% set n = len(relation) %}
     {% for i in range(0, n) %}
         <input type="radio" name="speciality" value="{{ i + 1}}"  >
-        <label for= "speciality"> {{ relation.iloc[i][0]}} </label>
+        <label for="speciality"> {{ relation.iloc[i][0]}} </label>
         </p>
         {% endfor %}
   <input type="submit" name="docbutton" value="Выбрать врача" class="button_1" >
