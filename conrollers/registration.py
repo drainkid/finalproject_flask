@@ -14,7 +14,7 @@ def registration():
                 request.form["password1"] == request.form["password2"]:
             hash = generate_password_hash(request.form["password1"])
             conn = get_db_connection()
-            res = create_user(conn, request.form["login"], hash)
+            res = create_user(conn, request.form['first_name'], request.form['second_name'], request.form["login"], hash, request.form['passport_number'], request.form['age'], request.form['gender'])
             if res:
                 flash("Вы успешно зарегестрированы", "success")
             else:

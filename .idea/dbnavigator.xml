@@ -13,22 +13,31 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="a1618ecb-a498-4ba2-9b56-b74ac7f5336e">
-      <console name="Connection" type="STANDARD" schema="main" session="Main"><![CDATA[SELECT * from users;]]></console>
+      <console name="Connection" type="STANDARD" schema="main" session="Main"><![CDATA[CREATE TABLE IF NOT EXISTS user (
+id integer PRIMARY KEY AUTOINCREMENT,
+first_name text not NULL,
+second_name text not NULL,
+login text not NULL,
+password text not NULL,
+passport_number integer not NULL,
+age integer not NULL,
+gender text not NULL
+);]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="a1618ecb-a498-4ba2-9b56-b74ac7f5336e" object-ref="schemas/main/tables/Attends" />
-      <object connection-id="a1618ecb-a498-4ba2-9b56-b74ac7f5336e" object-ref="schemas/main/tables/Patients" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="a1618ecb-a498-4ba2-9b56-b74ac7f5336e" dataset="main.users" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="a1618ecb-a498-4ba2-9b56-b74ac7f5336e" dataset="main.Attends" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="a1618ecb-a498-4ba2-9b56-b74ac7f5336e" dataset="main.sqlite_sequence" active-filter-id="" />
     <filter-actions connection-id="a1618ecb-a498-4ba2-9b56-b74ac7f5336e" dataset="main.Patients" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="a1618ecb-a498-4ba2-9b56-b74ac7f5336e" dataset="main.user" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="a1618ecb-a498-4ba2-9b56-b74ac7f5336e" dataset="main.Doctors" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="a1618ecb-a498-4ba2-9b56-b74ac7f5336e" dataset="main.Hours" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">

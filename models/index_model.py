@@ -12,16 +12,16 @@ def execute_query(connection, query):
     print("Query executed successfully")
 
 
-def create_user(con, login, password):
+def create_user(con, first_name, second_name, login, password, passport_number, age, gender):
     try:
-        query = f"SELECT COUNT() as 'count' FROM users WHERE login like '{login}'"
+        query = f"SELECT COUNT() as 'count' FROM user WHERE login like '{login}'"
         ds = pd.read_sql(query, con)
         if ds.get('count')[0] > 0:
             print("Пользователь с таким login уже существует")
             return False
 
         tm = math.floor(time.time())
-        query = f"INSERT INTO users ('login', 'password', 'time') VALUES ('{login}', '{password}', '{tm}')"
+        query = f"INSERT INTO user ('first_name', 'second_name', 'login', 'password','passport_number', 'age', 'gender') VALUES ('{first_name}', '{second_name}','{login}', '{password}', '{passport_number}', '{age}', '{gender}')"
         execute_query(con, query)
     except sqlite3.Error as e:
         print("Ошибка добавления пользователя в БД" + str(e))
